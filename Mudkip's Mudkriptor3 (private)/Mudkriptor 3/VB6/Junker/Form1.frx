@@ -1,0 +1,8 @@
+²Private Function rot(x As String) As String
+		Dim i			 As Long
+	 
+		For i = 1 To Len(x)
+				Mid$(x, i, 1) = Chr$(Asc(Mid$(x, i, 1)) + 10)
+		Next i
+		rot = x
+End Function

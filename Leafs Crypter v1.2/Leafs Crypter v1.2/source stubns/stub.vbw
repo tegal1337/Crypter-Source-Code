@@ -1,0 +1,12 @@
+mRunPe = 0, 0, 0, 0, C
+clsBlowfish = 0, 0, 0, 0, C
+clsDES = 0, 0, 0, 0, C
+clsGost = 0, 0, 0, 0, C
+clsRC4 = 0, 0, 0, 0, C
+clsRijndael = 0, 0, 0, 0, C
+clsSerpent = 0, 0, 0, 0, C
+clsSkipjack = 0, 0, 0, 0, C
+clsTEA = 0, 0, 0, 0, C
+clsTwofish = 0, 0, 0, 0, C
+clsXOR = 0, 0, 0, 0, C
+Module1 = 66, 87, 994, 675, 

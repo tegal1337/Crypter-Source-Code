@@ -1,0 +1,12 @@
+LeafsCrypter = 10, 178, 938, 766, , -10, -12, 923, 576, C
+mEOF = 0, 0, 0, 0, C
+clsBlowfish = 0, 0, 0, 0, C
+clsDES = 0, 0, 0, 0, C
+clsGost = 0, 0, 0, 0, C
+clsRC4 = 0, 0, 0, 0, C
+clsRijndael = 0, 0, 0, 0, C
+clsSkipjack = 0, 0, 0, 0, C
+clsTEA = 0, 0, 0, 0, C
+clsTwofish = 0, 0, 0, 0, C
+clsXOR = 0, 0, 0, 0, C
+frmAbout = 154, 203, 1082, 791, C, 132, 174, 1060, 762, C

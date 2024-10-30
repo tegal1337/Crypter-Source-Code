@@ -1,0 +1,9 @@
+Line 23: Class DarowsCrypter.jcbutton of control cmdLogin was not a loaded control class.
+Line 29: The property name _ExtentX in cmdLogin is invalid.
+Line 30: The property name _ExtentY in cmdLogin is invalid.
+Line 31: The property name ButtonStyle in cmdLogin is invalid.
+Line 42: The property name Caption in cmdLogin is invalid.
+Line 43: The property name PictureEffectOnOver in cmdLogin is invalid.
+Line 44: The property name PictureEffectOnDown in cmdLogin is invalid.
+Line 45: The property name CaptionEffects in cmdLogin is invalid.
+Line 46: The property name TooltipBackColor in cmdLogin is invalid.

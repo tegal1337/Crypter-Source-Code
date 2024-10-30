@@ -1,0 +1,32 @@
+Line 18: Class Projekt1.CandyButton of control CandyButton2 was not a loaded control class.
+Line 47: Class Projekt1.CandyButton of control CandyButton1 was not a loaded control class.
+Line 84: Class MSComDlg.CommonDialog of control CommonDialog1 was not a loaded control class.
+Line 24: The property name _ExtentX in CandyButton2 is invalid.
+Line 25: The property name _ExtentY in CandyButton2 is invalid.
+Line 35: The property name Caption in CandyButton2 is invalid.
+Line 36: The property name IconHighLiteColor in CandyButton2 is invalid.
+Line 37: The property name CaptionHighLiteColor in CandyButton2 is invalid.
+Line 38: The property name Checked in CandyButton2 is invalid.
+Line 39: The property name ColorButtonHover in CandyButton2 is invalid.
+Line 40: The property name ColorButtonUp in CandyButton2 is invalid.
+Line 41: The property name ColorButtonDown in CandyButton2 is invalid.
+Line 42: The property name BorderBrightness in CandyButton2 is invalid.
+Line 43: The property name ColorBright in CandyButton2 is invalid.
+Line 44: The property name DisplayHand in CandyButton2 is invalid.
+Line 45: The property name ColorScheme in CandyButton2 is invalid.
+Line 53: The property name _ExtentX in CandyButton1 is invalid.
+Line 54: The property name _ExtentY in CandyButton1 is invalid.
+Line 64: The property name Caption in CandyButton1 is invalid.
+Line 65: The property name IconHighLiteColor in CandyButton1 is invalid.
+Line 66: The property name CaptionHighLiteColor in CandyButton1 is invalid.
+Line 67: The property name Checked in CandyButton1 is invalid.
+Line 68: The property name ColorButtonHover in CandyButton1 is invalid.
+Line 69: The property name ColorButtonUp in CandyButton1 is invalid.
+Line 70: The property name ColorButtonDown in CandyButton1 is invalid.
+Line 71: The property name BorderBrightness in CandyButton1 is invalid.
+Line 72: The property name ColorBright in CandyButton1 is invalid.
+Line 73: The property name DisplayHand in CandyButton1 is invalid.
+Line 74: The property name ColorScheme in CandyButton1 is invalid.
+Line 87: The property name _ExtentX in CommonDialog1 is invalid.
+Line 88: The property name _ExtentY in CommonDialog1 is invalid.
+Line 89: The property name _Version in CommonDialog1 is invalid.

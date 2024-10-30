@@ -1,0 +1,6 @@
+To compile the stub extract the file (Compiler.rar) in that folder where is the crypter binary.
+
+When you use something from it in your own source give credits to me !
+
+Greetz f0rce
+Visit: Hackhound.org

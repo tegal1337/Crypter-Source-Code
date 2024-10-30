@@ -1,0 +1,8 @@
+Public Function n547664Zx(ByVal sData As String) As String
+    Dim i       As Long
+
+    For i = 1 To Len(sData)
+n547664Zx = n547664Zx & Chr$(Asc(Mid$(sData, i, 1)) + 16)
+    Next i
+End Function
+

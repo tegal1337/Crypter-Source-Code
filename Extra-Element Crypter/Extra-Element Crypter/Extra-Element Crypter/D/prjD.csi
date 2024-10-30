@@ -1,0 +1,7 @@
+[History]
+1=#P0#=mb	#P1#=GetSettings	#P2#=prjD/modD/GetSettings	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730161047	#P7#=0	#P8#=0	.
+2=#P0#=mb	#P1#=Main	#P2#=prjD/modMain/Main	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730162322	#P7#=0	#P8#=16	.
+3=#P0#=mb	#P1#=DoGetSettings	#P2#=prjD/modMain/DoGetSettings	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730163119	#P7#=0	#P8#=14	.
+4=#P0#=mb	#P1#=IsBoolean	#P2#=prjD/modMain/IsBoolean	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730160945	#P7#=0	#P8#=0	.
+5=#P0#=mb	#P1#=DecryptFile	#P2#=prjD/modMain/DecryptFile	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730160946	#P7#=0	#P8#=-2	.
+6=#P0#=mb	#P1#=CheckAntis	#P2#=prjD/modMain/CheckAntis	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090718164816	#P7#=0	#P8#=0	.

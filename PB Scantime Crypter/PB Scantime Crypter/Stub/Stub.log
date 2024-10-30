@@ -1,0 +1,21 @@
+PowerBASIC for Windows
+PB/Win  Version 9.00 
+Copyright (c) 1996-2008 PowerBasic Inc.
+Venice, Florida USA
+All Rights Reserved
+
+Primary source:  C:\DOKUME~1\ADMINI~1\Desktop\PBSCAN~1\Stub\Stub.bas   {49732 total lines}
+Target compilation:  Stub.exe
+Compile time:  0.6 seconds, at 4973200 lines/minute
+
+4844 bytes compiled code, 11741 bytes RTLibrary,
+44 bytes string literals, and 4360 bytes dgroup.
+Executable stack size:  1048576 bytes.
+Disk image: 22528 bytes   Memory image: 16145 bytes.
+
+Component Files:
+----------------
+C:\DOKUME~1\ADMINI~1\Desktop\PBSCAN~1\Stub\Stub.bas
+C:\PROGRA~1\POWERB~1.0\POWERB~1.0\WINAPI\WIN32API.INC
+
+

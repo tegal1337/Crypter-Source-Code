@@ -1,0 +1,16 @@
+Line 62: Class MSI.wxpText of control wxpText1 was not a loaded control class.
+Line 83: Class MSI.wxpText of control ico was not a loaded control class.
+Line 130: Class MSI.wxpText of control file was not a loaded control class.
+Line 151: Class MSI.wxpText of control rn was not a loaded control class.
+Line 68: The property name _ExtentX in wxpText1 is invalid.
+Line 69: The property name _ExtentY in wxpText1 is invalid.
+Line 70: The property name Text in wxpText1 is invalid.
+Line 89: The property name _ExtentX in ico is invalid.
+Line 90: The property name _ExtentY in ico is invalid.
+Line 91: The property name Text in ico is invalid.
+Line 136: The property name _ExtentX in file is invalid.
+Line 137: The property name _ExtentY in file is invalid.
+Line 138: The property name Text in file is invalid.
+Line 157: The property name _ExtentX in rn is invalid.
+Line 158: The property name _ExtentY in rn is invalid.
+Line 159: The property name Text in rn is invalid.

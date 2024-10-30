@@ -1,0 +1,16 @@
+frmMain = 46, 46, 791, 511, C, 23, 23, 768, 488, C
+X1 = 46, 46, 791, 511, 
+clsRC4 = 0, 0, 0, 0, C
+clsSimpleXOR = 0, 0, 634, 421, 
+clsDES = 0, 0, 0, 0, C
+clsTEA = 0, 0, 0, 0, C
+clsGost = 0, 0, 0, 0, C
+clsBlowfish = 0, 0, 0, 0, C
+clsTwofish = 0, 0, 0, 0, C
+clsHuffman = 0, 0, 0, 0, C
+clsSkipjack = 0, 0, 0, 0, C
+clsCryptAPI = 0, 0, 0, 0, C
+modCryptStuff = 150, 150, 784, 571, 
+X2 = 69, 69, 814, 534, 
+X3 = 92, 92, 837, 557, 
+X4 = 115, 115, 860, 580, 

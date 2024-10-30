@@ -1,0 +1,16 @@
+[History]
+B0=Proyecto1/cFFPD/Enumerate
+B1=Proyecto1/cFFPD
+B2=Proyecto1/cFFPD/DllLoad
+B3=Proyecto1/Form1/Form_Load
+B4=Proyecto1/cCDECL/Enumerate
+B5=Proyecto1/cCDECL/CallFunc
+B6=Proyecto1/cCDECL
+B7=Proyecto1/cCDECL/GetSpecialfolder
+B8=Proyecto1/mFFPass/Enumerate
+B9=Proyecto1/cCDECL/DllLoad
+B10=Proyecto1/cCDECL/Class_Terminate
+B11=Proyecto1/cCDECL/DllUnload
+B12=Proyecto1/cCDECL/WrapCallback
+B13=Proyecto1/mFFPass
+B14=Proyecto1/mFFPass/GetSpecialfolder

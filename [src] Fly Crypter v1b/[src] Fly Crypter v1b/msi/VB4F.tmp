@@ -1,0 +1,215 @@
+VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
+Begin VB.Form Form1 
+   BorderStyle     =   4  'Fixed ToolWindow
+   Caption         =   "Crypter"
+   ClientHeight    =   1650
+   ClientLeft      =   5160
+   ClientTop       =   3795
+   ClientWidth     =   4020
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   1650
+   ScaleWidth      =   4020
+   ShowInTaskbar   =   0   'False
+   Begin VB.CheckBox Check1 
+      Caption         =   "Change PE Entrypoint"
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   1920
+      TabIndex        =   6
+      Top             =   960
+      Width           =   1935
+   End
+   Begin VB.CheckBox Check3 
+      Caption         =   "EOF Support"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   5
+      Top             =   1200
+      Width           =   1215
+   End
+   Begin VB.CheckBox Check2 
+      Caption         =   "Realign PE Header"
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   120
+      TabIndex        =   4
+      Top             =   960
+      Width           =   1695
+   End
+   Begin VB.CommandButton cmdCrypt 
+      Caption         =   "Crypt"
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   3
+      Top             =   1320
+      Width           =   1695
+   End
+   Begin MSComDlg.CommonDialog cd 
+      Left            =   0
+      Top             =   0
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+   Begin VB.TextBox Text3 
+      BackColor       =   &H8000000F&
+      Height          =   285
+      Left            =   120
+      TabIndex        =   2
+      Top             =   480
+      Width           =   3135
+   End
+   Begin VB.CommandButton cmdBrowse 
+      Caption         =   "..."
+      Height          =   255
+      Left            =   3360
+      TabIndex        =   1
+      Top             =   120
+      Width           =   615
+   End
+   Begin VB.TextBox txtFile 
+      BackColor       =   &H8000000F&
+      Height          =   285
+      Left            =   120
+      TabIndex        =   0
+      Text            =   "Select File ..."
+      Top             =   120
+      Width           =   3135
+   End
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Const Abschluss = "{~|<(*)>|~}"
+Const a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+Const b = "abcdefghijklmnopqrstuvwxyz"
+Const c = "1234567890"
+Dim bufer() As Byte
+Dim Wohnort_von_der_Stub As String
+Public Function ReadEOFData(sFilePath As String) As String
+  On Error GoTo Err:
+  Dim sFileBuf As String, sEOFBuf As String, sChar As String
+  Dim lFF As Long, lPos As Long, lPos2 As Long, lCount As Long
+  If Dir(sFilePath) = "" Then GoTo Err:
+  lFF = FreeFile
+  Open sFilePath For Binary As #lFF
+  sFileBuf = Space(LOF(lFF))
+  Get #lFF, , sFileBuf
+  Close #lFF
+  lPos = InStr(1, StrReverse(sFileBuf), GetNullBytes(30))
+  sEOFBuf = (Mid$(StrReverse(sFileBuf), 1, lPos - 1))
+  ReadEOFData = StrReverse(sEOFBuf)
+  If ReadEOFData = "" Then
+  MsgBox "No EOF Data Detect!", vbInformation, "Crypter"
+  End If
+  Exit Function
+Err:
+  ReadEOFData = vbNullString
+End Function
+Sub WriteEOFData(sFilePath As String, sEOFData As String)
+  Dim sFileBuf As String
+  Dim lFF As Long
+  On Error Resume Next
+  If Dir(sFilePath) = "" Then Exit Sub
+  lFF = FreeFile
+  Open sFilePath For Binary As #lFF
+  sFileBuf = Space(LOF(lFF))
+  Get #lFF, , sFileBuf
+  Close #lFF
+  Kill sFilePath
+  lFF = FreeFile
+  Open sFilePath For Binary As #lFF
+  Put #lFF, , sFileBuf & sEOFData
+  Close #lFF
+End Sub
+Public Function GetNullBytes(lNum) As String
+  Dim sBuf As String
+  Dim i As Integer
+  For i = 1 To lNum
+  sBuf = sBuf & Chr(0)
+  Next
+  GetNullBytes = sBuf
+End Function
+Private Sub cmdBrowse_Click()
+  With cd
+  .CancelError = False
+  .Filter = "Executables (*.exe)|*.exe|All Files (*.*)|*.*"
+  .ShowOpen
+  txtFile.Text = .FileName
+  If txtFile.Text = "" Then
+  MsgBox "Please select a File!", vbInformation, "Crypter"
+  Exit Sub
+  End If
+  End With
+End Sub
+Private Sub cmdCrypt_Click()
+Dim c  As New clscrypt
+Dim Data As String
+Dim Stub As String
+Dim pump As String
+Dim kbstring As String
+Dim eofdata As String
+Dim i As Integer
+Dim AD As String
+
+  bufer = LoadResData(101, "CUSTOM")
+  Open App.Path & "/stub.exe" For Binary As #1
+  Put #1, , bufer
+  Close #1
+
+cd.CancelError = False
+cd.Filter = "Executables (*.exe)|*.exe|All Files (*.*)|*.*"
+cd.FileName = ""
+cd.ShowSave
+If Check3.Value = 1 Then
+eofdata = ReadEOFData(txtFile.Text)
+Else
+End If
+
+Open txtFile.Text For Binary Access Read As #1
+Data = String(LOF(1), vbNullChar)
+Get #1, , Data
+Close #1
+
+Open App.Path & "/stub.exe" For Binary Access Read As #1
+Stub = String(LOF(1), vbNullChar)
+Get #1, , Stub
+Close #1
+
+Open cd.FileName For Binary Access Write As #1
+Put #1, , Stub + Abschluss
+Put #1, , c.EncryptString(Data, Text3.Text)
+Put #1, , Abschluss
+Put #1, , AD
+Put #1, , Abschluss
+Put #1, , Text3.Text
+Put #1, , Abschluss
+Close #1
+If Check3.Value = 1 Then
+Call WriteEOFData(cdl.FileName, eofdata)
+End If
+
+If Check1.Value = 1 Then
+Call ChangeOEPFromFile(cd.FileName)
+End If
+If Check2.Value = 1 Then
+Call RealignPEFromFile(cd.FileName)
+End If
+  MsgBox "Done!", vbInformation, "Crypter"
+End Sub
+Public Function sRandom()
+  Dim zeichen As String
+  Dim i As Integer
+  zeichen = a + b + c
+  For i = 1 To 50
+  sRandom = sRandom & Mid$(zeichen, Int((Rnd * Len(zeichen)) + 1), 1)
+  Next i
+End Function
+Private Sub Form_Load()
+  Text3.Text = sRandom
+End Sub

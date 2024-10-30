@@ -1,0 +1,5 @@
+*For bypass Bitdefender you must copy msi folder in your c:\msi ... don't build
+stub on desktop or others path.
+*For bypass all av's you must only change lt & lt2 with one random key like
+Const lt = "fYNwnR6nREng1wUOnBQwFkDNqa6kwt"
+Const lt2 = "gGzpsvOfXgCF4YQKj7Lw0DY7MlIvAz" strings must be >= 30

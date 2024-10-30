@@ -1,0 +1,57 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Module=mPE; mPE.bas
+Module=mMain; mMain.bas
+Class=mXOR; ..\cls\XOR.cls
+Startup="Sub Main"
+HelpFile=""
+Title="Op3n"
+ExeName32="Op3n.exe"
+Command32=""
+Name="Op3n"
+HelpContextID="0"
+Description="Open"
+CompatibleMode="0"
+MajorVer=0
+MinorVer=0
+RevisionVer=1
+AutoIncrementVer=0
+ServerSupportFiles=0
+VersionComments="Off"
+VersionCompanyName="eXPerience"
+VersionFileDescription="Tool"
+VersionLegalCopyright="d3will"
+VersionLegalTrademarks="-----"
+VersionProductName="Op3n"
+CompilationType=0
+OptimizationType=1
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+DebugStartupOption=0
+
+[MS Transaction Server]
+AutoRefresh=1
+
+[vbAdvance]
+IsConsole=0
+HasStubFile=0
+GenerateMap=0
+TSAware=0
+XPManifest=0
+ResBuildName=.\Op3n.dll
+ReplaceIcon=1
+AppIconFile=C:\Documents and Settings\Administrator\Desktop\lol.ico
+SendCommandArgs=0
+SymbDbgPref=0
+RevisionVersion=0

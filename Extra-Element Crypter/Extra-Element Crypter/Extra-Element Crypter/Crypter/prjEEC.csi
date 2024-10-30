@@ -1,0 +1,5 @@
+[History]
+1=#P0#=mb	#P1#=ButtonShape	#P2#=prjEEC/lvButtons_H/ButtonShape [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20090806173313	#P7#=0	#P8#=0	.
+2=#P0#=mb	#P1#=BuildFile	#P2#=prjEEC/frmMain/BuildFile	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730160137	#P7#=0	#P8#=62	.
+3=#P0#=mb	#P1#=cmdBuild_Click	#P2#=prjEEC/frmMain/cmdBuild_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20090730152536	#P7#=0	#P8#=9	.
+4=#P0#=mb	#P1#=GenKey	#P2#=prjEEC/modFunc/GenKey	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20090730152522	#P7#=0	#P8#=18	.

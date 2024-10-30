@@ -1,0 +1,44 @@
+                                                               
+o     o             8 8             o          o               
+8b   d8             8 8                        8               
+8`b d'8 o    o .oPYo8 8  .o  oPYo. o8 .oPYo.  o8P .oPYo. oPYo. 
+8 `o' 8 8    8 8    8 8oP'   8  `'  8 8    8   8  8    8 8  `' 
+8     8 8    8 8    8 8 `b.  8      8 8    8   8  8    8 8     
+8     8 `YooP' `YooP' 8  `o. 8      8 8YooP'   8  `YooP' 8     
+..::::..:.....::.....:..::.....:::::..8 ....:::..::.....:..::::
+::::::::::::::::::::::::::::::::::::::8 :::::::::::::::::::::::
+::::::::::::::::::::By Mudkip [mudkip_@live.com]:::::::::::::::
+::::::::::::::::::::::::::\_V3.0 Rev 1_/:::::::::::::::::::::::
+
+=== INSTRUCTIONS
+	_ First, ensure that you have all of these files within the same directory:
+		+mudkriptor.exe
+		+stub.exe
+		+reshacker.exe [icon changer will not work without this]
+	_ Open Mudkriptor, browse for your file, choose your settings and click
+	  the green "encrypt" button.
+
+=== UNDETECTION TECHNIQUES
+	_ Every time you open mudkriptor an entire set of new phrases are generated 
+	  to ensure that each encryption is different from the last, even if you 
+	  encrypt the same file twice. These methods will get rid of 90% of AV detections
+	_ There are some intensely sensitive AV's out there such as Avira that will pick
+	  up even the slightest deviations from a file. To counteract this, make sure
+	  you have "Realign PE header" checked off.
+	_ Keep in mind that if you are saving EOF data, it cannot be crypted and may be
+	  the cause of the detection.
+	_ If you end up getting stuck with an Avira detection, try changing the icon.
+	  NOTE: Some of the icons included in the icon folder are probably detected.
+	  It's best to use your own icons.
+
+	+ If all else fails, just buy a new stub!
+
+
+=== GETTING A NEW STUB
+	_ For existing customers, each new stub will cost $3 USD
+	  
+	+ To purchase, just contact me over MSN: mudkip_@live.com
+
+=== CREDITS
+	_ Karcrack @ Hackhound.org for the base of the RunPE
+	_ Cobein @ Advancevb.com.ar for the PE realigning module
